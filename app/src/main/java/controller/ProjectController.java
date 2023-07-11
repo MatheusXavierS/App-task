@@ -13,8 +13,7 @@ import util.ConnectionFactory;
 public class ProjectController {
 
     public void save(Project project) {
-        String sql = "INSERT into projects (name, description, "
-                + "createdAt, updateAt) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO projects (name, description,createdAt, updatedAt) VALUES (?, ?, ?, ?)";
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -37,7 +36,7 @@ public class ProjectController {
     public void updade(Project project) {
         String sql = "UPDATE projects SET"
                 + "name = ?, description = ?,"
-                + "createdAt = ?, updateAt = ? WHERE id = ?";
+                + "createdAt = ?, updatedAt = ? WHERE id = ?";
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -99,7 +98,7 @@ public class ProjectController {
                 project.setName(resultSet.getString("name"));
                 project.setDescription(resultSet.getString("description"));
                 project.setCreatedAt(resultSet.getDate("createdAt"));
-                project.setUpdatedAt(resultSet.getDate("updateAt"));
+                project.setUpdatedAt(resultSet.getDate("updatedAt"));
 
                 projects.add(project);
             }
